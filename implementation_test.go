@@ -1,6 +1,7 @@
 package lab2
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -23,7 +24,7 @@ func TestConvertPostfixToLisp(t *testing.T) {
 		{"2 3 2 5 ^ *", "", true},
 	}
 	for _, tt := range tests {
-		result, err := convertPostfixToLisp(tt.input)
+		result, err := ConvertPostfixToLisp(tt.input)
 		if tt.hasError {
 			assert.Error(t, err, "Expected an error for input: %s", tt.input)
 		} else {
@@ -31,4 +32,12 @@ func TestConvertPostfixToLisp(t *testing.T) {
 			assert.Equal(t, tt.expected, result, "Mismatch for input: %s", tt.input)
 		}
 	}
+}
+
+func ExampleConvertPostfixToLisp() {
+	res, _ := ConvertPostfixToLisp("2 5 +")
+	fmt.Println(res)
+
+	// Output:
+	// (+ 2 5)
 }

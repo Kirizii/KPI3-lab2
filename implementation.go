@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func convertPostfixToLisp(expression string) (string, error) {
+func ConvertPostfixToLisp(expression string) (string, error) {
 	tokens := strings.Fields(expression)
 	stack := []string{}
 	for _, token := range tokens {
