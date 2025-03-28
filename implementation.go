@@ -20,7 +20,7 @@ func ConvertPostfixToLisp(expression string) (string, error) {
 			if token == "^" {
 				token = "pow"
 			}
-			stack = append(stack, fmt.Sprintf("(%s %s %s)", token, a, b))
+			stack = append(stack, fmt.Sprintf("(%s %s %s)", token, b, a))
 		default:
 			stack = append(stack, token)
 		}
