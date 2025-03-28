@@ -22,6 +22,7 @@ func TestConvertPostfixToLisp(t *testing.T) {
 		{"4 +", "", true},
 		{"2 3 2 ^ *", "(* 2 (pow 3 2))", false},
 		{"2 3 2 5 ^ *", "", true},
+		{"1 2 + 3 4 + * 6 5 - 7 8 + + /", "(/ (* (+ 1 2) (+ 3 4)) (+ (- 6 5) (+ 7 8)))", false},
 	}
 	for _, tt := range tests {
 		result, err := ConvertPostfixToLisp(tt.input)
